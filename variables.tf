@@ -62,3 +62,51 @@ variable "node_pools" {
     }
   }
 }
+
+/*variable "kubernetes_clusters" {
+  type = map(object({
+    location   = string
+    dns_prefix = string
+    node_pools = map(object({
+      vm_size    = string
+      node_count = number
+      mode       = string # Can be "System" or "User"
+    }))
+  }))
+  
+  default = {
+    "aks-cluster-1" = {
+      location   = "East US"
+      dns_prefix = "aks1"
+      node_pools = {
+        "system-pool" = {
+          vm_size    = "Standard_D2s_v3"
+          node_count = 2
+          mode       = "System"
+        }
+        "user-pool" = {
+          vm_size    = "Standard_D4s_v3"
+          node_count = 3
+          mode       = "User"
+        }
+      }
+    }
+    "aks-cluster-2" = {
+      location   = "West Europe"
+      dns_prefix = "aks2"
+      node_pools = {
+        "system-pool" = {
+          vm_size    = "Standard_D2s_v3"
+          node_count = 1
+          mode       = "System"
+        }
+        "gpu-pool" = {
+          vm_size    = "Standard_NC6"
+          node_count = 2
+          mode       = "User"
+        }
+      }
+    }
+  }
+}
+*/
